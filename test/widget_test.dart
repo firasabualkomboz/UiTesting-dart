@@ -1,3 +1,4 @@
+import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -5,26 +6,13 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:UiTestingPage/main.dart';
 
 void main() {
+  test('counter integer test', () {
+    final homePageTestCount = MyHomePage;
+    homePageTestCount.increment();
 
-     group('Home Screen Test', () {
-        FlutterDriver driver;
-        setUpAll(() async {
-            // Connects to the app
-            driver = await FlutterDriver.connect();
-        });
-        tearDownAll(() async {
-            if (driver != null) {
-                // Closes the connection
-                driver.close();
-            }
-        });
-        test('verify the text on home screen', () async {
-            SerializableFinder message = find.text("You have pushed the button this many times:");
-            await driver.waitFor(message);
-            expect(await driver.getText(message), "You have pushed the button this many times:");
-        });
-    });
-    
+    expect(homePageTestCount.value, 1);
+  });
+
   // testWidgets('Counter increments smoke test', (WidgetTester tester) async {
   //   // Build our app and trigger a frame.
   //   await tester.pumpWidget(MyApp());

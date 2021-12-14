@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -33,6 +35,12 @@ class MyHomePage extends StatefulWidget {
       ),
     );
   }
+  
+  int value = 0;
+void increment() => value++;
+void decrement() => value--; 
+
+
 }
 
 
@@ -86,5 +94,9 @@ class _TaskItemState extends State<TaskItem> {
       ],
     );
   }
+
+
+ 
+
 
 }
